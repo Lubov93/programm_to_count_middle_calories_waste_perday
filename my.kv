@@ -1,0 +1,93 @@
+<ItemLabel@Label>:
+    font_size: '25sp'
+    halign: 'left' # горизонтальное выравнивание
+    valign: 'middle'  # вертикальное выравнивание
+    text_size: self.size
+
+
+
+<Container>:
+    rows:3
+
+    text_input: text_input
+    wemanmin: wemanmin
+    wemanmax: wemanmax
+    manmin: manmin
+    manmax: manmax
+    min_active: min_active
+
+
+    AnchorLayout:
+        size_hint: 1, 0.15
+
+        TextInput:
+            id: text_input
+            font_size: '45sp'
+            #multiline: False
+            input_type: 'number'
+            input_filter: 'int'
+
+    GridLayout:
+        cols:2
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [30, 0, 0,0]
+            ItemLabel:
+
+                text:  'Женщины меньше 50кг'
+
+            ItemLabel:
+
+                text:  'Женщины больше 60 кг'
+            ItemLabel:
+
+                text:  'Мужчины меньше 70 кг'
+
+            ItemLabel:
+
+                text:  'Мужчины больше 70кг'
+
+            ItemLabel:
+
+                text:  'Минимальная активность'
+
+        BoxLayout:
+
+            orientation: 'vertical'
+            size_hint: 0.5,1
+            ItemLabel:
+                id: wemanmin
+                text:  '0'
+
+            ItemLabel:
+                id: wemanmax
+                text:  '0'
+
+            ItemLabel:
+                id: manmin
+                text:  '0'
+
+            ItemLabel:
+                id: manmax
+                text:  '0'
+
+            ItemLabel:
+                id: min_active
+                text:  '0'
+
+
+    BoxLayout:
+        size_hint: 0.9, 0.15
+        padding: [30,  0, 30,20]
+
+        Button:
+            text: 'Определить!'
+            font_size: '40'
+
+            on_release:
+                root.calculate()
+
+
+
